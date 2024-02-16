@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const sendResponse = require('../utils/responseUtil');
 const sgMail = require("@sendgrid/mail");
-const saltRounds = process.env.SALT_ROUNDS;
+const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
+
 const secretKey = process.env.JWT_SECRET_KEY; // Use a strong, environment-specific secret
 
 /**
