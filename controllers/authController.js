@@ -9,6 +9,11 @@ const sgMail = require("@sendgrid/mail");
 const saltRounds = process.env.SALT_ROUNDS;
 const secretKey = process.env.JWT_SECRET_KEY; // Use a strong, environment-specific secret
 
+/**
+ * POST /auth/forgot-password
+ * Body: { email: string }
+ * Sends a password reset link to the user's email if the user exists.
+ */
 exports.forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -53,6 +58,11 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
+/**
+ * POST /auth/reset-password
+ * Body: { token: string, newPassword: string }
+ * Allows a user to reset their password using a valid token.
+ */
 exports.resetPassword = async (req, res) => {
   try {
     const { token, newPassword } = req.body;
@@ -80,6 +90,11 @@ exports.resetPassword = async (req, res) => {
   }
 };
 
+/**
+ * POST /auth/login
+ * Body: { username: string, password: string }
+ * Description: Authenticates a user and returns a JWT if successful.
+ */
 exports.loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -103,6 +118,11 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+/**
+ * POST /auth/register
+ * Body: { username: string, password: string, email: string }
+ * Description: Registers a new user and checks if email and username already exist.
+ */
 exports.registerUser = async (req, res) => {
   try {
     const { username, password, email } = req.body;
@@ -132,6 +152,8 @@ exports.registerUser = async (req, res) => {
 };
 
 async function sendEmail(to, from, subject, text, html) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY); 
+
   const msg = {
     to,
     from,
