@@ -9,6 +9,7 @@ const sgMail = require("@sendgrid/mail");
 const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
 
 const secretKey = process.env.JWT_SECRET_KEY; // Use a strong, environment-specific secret
+const fromEmail = process.env.FORGOT_PW_FROM_EMAIL; // The email the user receives the forgot password link from, needs to be configured as this through SendGrid
 
 /**
  * POST /auth/forgot-password
@@ -43,7 +44,7 @@ exports.forgotPassword = async (req, res) => {
     try {
       await sendEmail(
         user.email,
-        "support@instamusictools.com",
+        fromEmail,
         emailSubject,
         emailText,
         emailHtml
