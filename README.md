@@ -1,7 +1,3 @@
-Below is an enhanced and formatted version of your README for the Node app with user authentication endpoints. It has been structured for better readability and comprehension:
-
----
-
 # User Authentication API with SendGrid
 
 This project implements user authentication in a Node.js application, including features such as login, registration, password reset, and sending emails using SendGrid.
