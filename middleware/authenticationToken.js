@@ -1,7 +1,6 @@
-// middleware/authenticateToken.js
 const jwt = require('jsonwebtoken');
 
-const secretKey = process.env.JWT_SECRET; // It's best to use an environment variable for the secret key
+const secretKey = process.env.JWT_SECRET; 
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
