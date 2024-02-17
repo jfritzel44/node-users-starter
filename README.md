@@ -1,6 +1,6 @@
 # User Authentication API with SendGrid
 
-This project implements user authentication in a Node.js application, including features such as login, registration, password reset, and sending emails using SendGrid, and MongoDB
+This project implements user authentication in a Node.js application, including features such as login, registration, password reset, and sending emails for forgot password using SendGrid, and MongoDB
 
 ## Getting Started
 
