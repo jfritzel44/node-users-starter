@@ -21,6 +21,7 @@ Follow these steps to set up the project environment and run the application.
    FRONTEND_APP_URL=<your_frontend_app_url>
    JWT_SECRET_KEY=<your_jwt_secret_key>
    SALT_ROUNDS=<your_salt_rounds_for_bcrypt>
+   FORGOT_PW_FROM_EMAIL=<support@your_domain.com>
    ```
 
 2. Set up a free account on [SendGrid](https://sendgrid.com) and obtain an API key.
