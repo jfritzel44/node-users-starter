@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var authRouter = require('./routes/auth/index'); // Import auth routes
+var authRouter = require('./routes/auth/authRoutes'); // Import auth routes
 
 var indexRouter = require('./routes/index');
 
